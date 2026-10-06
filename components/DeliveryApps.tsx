@@ -73,17 +73,17 @@ export default function DeliveryApps() {
           </p>
         </div>
 
-        {/* 4 App Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 App Cards Grid: 2 cards per row on mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {DELIVERY_APPS.map((app) => (
             <div
               key={app.id}
-              className="bg-[#faf9f6] rounded-2xl neo-border neo-shadow p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 group text-right"
+              className="bg-[#faf9f6] rounded-xl sm:rounded-2xl neo-border-sm sm:neo-border neo-shadow p-3 sm:p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 group text-right"
             >
               <div>
                 {/* Header: App Logo + Tag */}
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden neo-border-sm shadow-md bg-white flex-shrink-0 group-hover:scale-105 transition-transform">
+                <div className="flex items-start justify-between gap-1.5 sm:gap-3 mb-2.5 sm:mb-4">
+                  <div className="relative w-11 h-11 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden neo-border-sm shadow-md bg-white flex-shrink-0 group-hover:scale-105 transition-transform">
                     <Image
                       src={app.logo}
                       alt={app.name}
@@ -91,20 +91,20 @@ export default function DeliveryApps() {
                       className="object-cover"
                     />
                   </div>
-                  <span className="bg-[#ffc700] text-black font-black text-xs px-2.5 py-1 rounded-lg neo-border-sm">
+                  <span className="bg-[#ffc700] text-black font-black text-[9px] sm:text-xs px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-lg neo-border-sm">
                     {app.badge}
                   </span>
                 </div>
 
                 {/* App Names */}
-                <h3 className="text-2xl font-black text-black group-hover:text-[#e11d2a] transition-colors">
+                <h3 className="text-base sm:text-2xl font-black text-black group-hover:text-[#e11d2a] transition-colors">
                   {app.name}
                 </h3>
-                <span className="text-xs text-gray-500 font-bold tracking-wider block mb-2">
+                <span className="text-[10px] sm:text-xs text-gray-500 font-bold tracking-wider block mb-1 sm:mb-2">
                   {app.nameEn}
                 </span>
 
-                <p className="text-xs sm:text-sm text-gray-700 font-bold leading-relaxed mb-6">
+                <p className="text-[11px] sm:text-sm text-gray-700 font-bold leading-relaxed mb-3 sm:mb-6 line-clamp-2">
                   {app.description}
                 </p>
               </div>
@@ -114,14 +114,14 @@ export default function DeliveryApps() {
                 href={app.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full neo-btn font-black text-sm py-3 px-4 rounded-xl neo-border-sm flex items-center justify-center gap-2 shadow-sm transition-all"
+                className="w-full neo-btn font-black text-[11px] sm:text-sm py-2 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl neo-border-sm flex items-center justify-center gap-1 sm:gap-2 shadow-sm transition-all"
                 style={{
                   backgroundColor: app.color,
                   color: app.textColor,
                 }}
               >
-                <span>اطلب عبر {app.name}</span>
-                <ArrowSquareOut size={16} weight="bold" />
+                <span>طلب {app.name}</span>
+                <ArrowSquareOut size={14} weight="bold" />
               </a>
 
             </div>

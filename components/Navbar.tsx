@@ -10,58 +10,48 @@ export default function Navbar() {
   return (
     <>
       {/* Top Ticker Ribbon - Prestige & Quality Marquee */}
-      <div className="bg-[#ffc700] text-[#121212] font-black text-sm sm:text-base border-b-2 border-black overflow-hidden py-2 select-none relative z-50">
+      <div className="bg-[#ffc700] text-[#121212] font-black text-xs sm:text-base border-b-2 border-black overflow-hidden py-1.5 sm:py-2 select-none relative z-50">
         <div className="animate-marquee-rtl flex items-center space-x-reverse space-x-8 whitespace-nowrap">
           <span className="flex items-center gap-2">
-            <Fire size={20} weight="fill" className="text-[#e11d2a]" />
+            <Fire size={18} weight="fill" className="text-[#e11d2a]" />
             أشهى فلافل وشاورما وكرسبي بالمنطقة الشرقية
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
           <span className="flex items-center gap-1.5">
-            <Sparkle size={20} weight="fill" className="text-[#e11d2a]" />
+            <Sparkle size={18} weight="fill" className="text-[#e11d2a]" />
             خبرة وأصالة وجودة منذ 2013م
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
           <span className="flex items-center gap-2">
-            <MapPin size={20} weight="fill" className="text-[#e11d2a]" />
+            <MapPin size={18} weight="fill" className="text-[#e11d2a]" />
             ١٠ فروع لخدمتكم في الأحساء والخبر
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
           <span className="flex items-center gap-1">
-            <InstagramLogo size={20} weight="bold" />
+            <InstagramLogo size={18} weight="bold" />
             Instagram: @fkefaak
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
           <span className="flex items-center gap-1">
-            <TiktokLogo size={20} weight="bold" />
+            <TiktokLogo size={18} weight="bold" />
             TikTok: @fke_faak
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
 
           {/* Seamless loop repeat */}
           <span className="flex items-center gap-2">
-            <Fire size={20} weight="fill" className="text-[#e11d2a]" />
+            <Fire size={18} weight="fill" className="text-[#e11d2a]" />
             أشهى فلافل وشاورما وكرسبي بالمنطقة الشرقية
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
           <span className="flex items-center gap-1.5">
-            <Sparkle size={20} weight="fill" className="text-[#e11d2a]" />
+            <Sparkle size={18} weight="fill" className="text-[#e11d2a]" />
             خبرة وأصالة وجودة منذ 2013م
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
           <span className="flex items-center gap-2">
-            <MapPin size={20} weight="fill" className="text-[#e11d2a]" />
+            <MapPin size={18} weight="fill" className="text-[#e11d2a]" />
             ١٠ فروع لخدمتكم في الأحساء والخبر
-          </span>
-          <span className="text-[#e11d2a] font-black">•</span>
-          <span className="flex items-center gap-1">
-            <InstagramLogo size={20} weight="bold" />
-            Instagram: @fkefaak
-          </span>
-          <span className="text-[#e11d2a] font-black">•</span>
-          <span className="flex items-center gap-1">
-            <TiktokLogo size={20} weight="bold" />
-            TikTok: @fke_faak
           </span>
           <span className="text-[#e11d2a] font-black">•</span>
         </div>
@@ -69,12 +59,12 @@ export default function Navbar() {
 
       {/* Main Sticky Navbar - Minimal & Focused */}
       <header className="sticky top-0 z-40 bg-[#e11d2a] border-b-4 border-black text-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             
             {/* Logo and Brand Title */}
-            <a href="#hero" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-14 bg-white p-1 rounded-xl neo-border-sm neo-shadow-sm transform -rotate-3 group-hover:rotate-0 transition-transform">
+            <a href="#hero" className="flex items-center gap-2 sm:gap-3 group">
+              <div className="relative w-10 h-12 sm:w-12 sm:h-14 bg-white p-1 rounded-xl neo-border-sm neo-shadow-sm transform -rotate-3 group-hover:rotate-0 transition-transform">
                 <Image
                   src="/logo_transparent.png"
                   alt="شعار فلافل وشاورما على كيفك"
@@ -84,11 +74,11 @@ export default function Navbar() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-white drop-shadow-[2px_2px_0px_#000]">
+                <span className="text-lg sm:text-2xl font-black tracking-tight text-white drop-shadow-[2px_2px_0px_#000]">
                   على كيفك
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-[#ffc700] tracking-wide -mt-1">
-                  فلافل • شاورما • كرسبي (منذ 2013)
+                <span className="text-[10px] sm:text-sm font-bold text-[#ffc700] tracking-wide -mt-0.5">
+                  فلافل • شاورما • كرسبي
                 </span>
               </div>
             </a>

@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[#e11d2a] text-white overflow-hidden border-b-4 border-black pt-8 pb-14 sm:pb-20 lg:pb-24"
+      className="relative bg-[#e11d2a] text-white overflow-hidden border-b-4 border-black pt-5 pb-8 sm:pb-20 lg:pb-24"
     >
       {/* Background Texture: Halftone Dots */}
       <div className="absolute inset-0 bg-dots-white opacity-20 pointer-events-none" />
@@ -32,10 +32,10 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Content (Text & Call to Actions) */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-right">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-right">
             
-            {/* Giant Punchy Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.1] text-white drop-shadow-[3px_3px_0px_#000]">
+            {/* Punchy Headline - Balanced on Mobile & Desktop */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-tight text-white drop-shadow-[2px_2px_0px_#000] sm:drop-shadow-[3px_3px_0px_#000]">
               القرمشة الأسطورية...{' '}
               <span className="text-[#ffc700] inline-block underline decoration-black decoration-wavy decoration-2">
                 على كيفك!
@@ -43,93 +43,93 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle - Appetite, Quality & Experience */}
-            <p className="text-lg sm:text-xl text-white/95 font-bold max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-sm">
-              ألذ فلافل شامية مقرمشة تُقلى فور طلبك، شاورما دجاج متبلة على السيخ بخلطتنا الحصرية، وبرجر دجاج كرسبي بالخلطة السرية الفاخرة — نكهة لا تُقاوم تُرضي كل الأذواق.
+            <p className="text-sm sm:text-lg lg:text-xl text-white/95 font-medium sm:font-bold max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-sm">
+              ألذ فلافل شامية مقرمشة تُقلى فور طلبك، شاورما دجاج متبلة على السيخ بخلطتنا الحصرية، وبرجر دجاج كرسبي بالخلطة السرية الفاخرة — نكهة تُرضي كل الأذواق.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            {/* Action Buttons: Side-by-Side on Mobile */}
+            <div className="flex flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-4 pt-1 sm:pt-2 w-full">
               <a
-                href="#menu"
-                className="w-full sm:w-auto neo-btn bg-[#ffc700] text-black font-black text-lg px-8 py-4 rounded-2xl neo-border neo-shadow-lg flex items-center justify-center gap-3 group"
+                href="#menu-preview"
+                className="flex-1 sm:flex-initial neo-btn bg-[#ffc700] text-black font-black text-xs sm:text-base px-3 sm:px-7 py-2.5 sm:py-3.5 rounded-xl neo-border-sm neo-shadow flex items-center justify-center gap-1.5 sm:gap-2 group"
               >
-                <ForkKnife size={24} weight="bold" className="group-hover:rotate-12 transition-transform" />
-                <span>استكشف المنيو الكامل</span>
+                <ForkKnife size={18} weight="bold" className="group-hover:rotate-12 transition-transform sm:w-5 sm:h-5" />
+                <span className="whitespace-nowrap">استكشف المنيو</span>
               </a>
 
               <a
                 href="#branches"
-                className="w-full sm:w-auto neo-btn bg-white text-black font-black text-lg px-8 py-4 rounded-2xl neo-border neo-shadow-lg flex items-center justify-center gap-3 group"
+                className="flex-1 sm:flex-initial neo-btn bg-white text-black font-black text-xs sm:text-base px-3 sm:px-7 py-2.5 sm:py-3.5 rounded-xl neo-border-sm neo-shadow flex items-center justify-center gap-1.5 sm:gap-2 group"
               >
-                <MapPin size={24} weight="fill" className="text-[#e11d2a] group-hover:scale-110 transition-transform" />
-                <span>المواقع والطلب المباشر</span>
+                <MapPin size={18} weight="fill" className="text-[#e11d2a] group-hover:scale-110 transition-transform sm:w-5 sm:h-5" />
+                <span className="whitespace-nowrap">المواقع والطلب</span>
               </a>
             </div>
 
-            {/* Quality Pillars Strip */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-sm font-black text-white/90">
-              <div className="flex items-center gap-2 bg-black/25 px-3.5 py-1.5 rounded-xl border border-white/20">
-                <span className="text-[#ffc700]">✓</span>
-                <span>فلافل تقلى طازجة فور طلبك</span>
+            {/* Quality Pillars Strip: Proper 3-Column Clean Grid on Mobile */}
+            <div className="pt-2 grid grid-cols-3 gap-1.5 sm:gap-3 text-center">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
+                <span className="text-[#ffc700] text-xs sm:text-sm font-black">✓</span>
+                <span className="text-[10px] sm:text-xs font-black text-white/95 leading-tight">فلافل طازجة تقلى فوراً</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/25 px-3.5 py-1.5 rounded-xl border border-white/20">
-                <span className="text-[#ffc700]">✓</span>
-                <span>شاورما بتتبيلة السيخ الأصلية</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
+                <span className="text-[#ffc700] text-xs sm:text-sm font-black">✓</span>
+                <span className="text-[10px] sm:text-xs font-black text-white/95 leading-tight">شاورما بتتبيلة السيخ</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/25 px-3.5 py-1.5 rounded-xl border border-white/20">
-                <span className="text-[#ffc700]">✓</span>
-                <span>١٠ فروع بخدمتكم في الشرقية</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
+                <span className="text-[#ffc700] text-xs sm:text-sm font-black">✓</span>
+                <span className="text-[10px] sm:text-xs font-black text-white/95 leading-tight">١٠ فروع بالشرقية</span>
               </div>
             </div>
 
             {/* Delivery Apps Quick Row */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-              <span className="text-xs sm:text-sm font-bold text-[#ffc700]">
-                متوفر للطلب المباشر عبر:
+            <div className="pt-1 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-3">
+              <span className="text-[11px] sm:text-sm font-bold text-[#ffc700]">
+                متوفر أيضاً عبر تطبيقات التوصيل:
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2.5 flex-wrap">
                 <a
                   href="#delivery-apps"
-                  className="bg-white p-1 rounded-xl neo-border-sm hover:scale-105 transition-transform flex items-center gap-1.5 px-2"
+                  className="bg-white p-1 rounded-lg neo-border-sm hover:scale-105 transition-transform flex items-center gap-1 px-1.5 sm:px-2"
                   title="هنقرستيشن"
                 >
-                  <div className="relative w-6 h-6 rounded-lg overflow-hidden">
+                  <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-md overflow-hidden">
                     <Image src="/delivery-apps/hungerstation.jpg" alt="Hungerstation" fill className="object-cover" />
                   </div>
-                  <span className="text-xs font-black text-black">هنقرستيشن</span>
+                  <span className="text-[10px] sm:text-xs font-black text-black">هنقرستيشن</span>
                 </a>
 
                 <a
                   href="#delivery-apps"
-                  className="bg-white p-1 rounded-xl neo-border-sm hover:scale-105 transition-transform flex items-center gap-1.5 px-2"
+                  className="bg-white p-1 rounded-lg neo-border-sm hover:scale-105 transition-transform flex items-center gap-1 px-1.5 sm:px-2"
                   title="جاهز"
                 >
-                  <div className="relative w-6 h-6 rounded-lg overflow-hidden">
+                  <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-md overflow-hidden">
                     <Image src="/delivery-apps/jahez.jpg" alt="Jahez" fill className="object-cover" />
                   </div>
-                  <span className="text-xs font-black text-black">جاهز</span>
+                  <span className="text-[10px] sm:text-xs font-black text-black">جاهز</span>
                 </a>
 
                 <a
                   href="#delivery-apps"
-                  className="bg-white p-1 rounded-xl neo-border-sm hover:scale-105 transition-transform flex items-center gap-1.5 px-2"
+                  className="bg-white p-1 rounded-lg neo-border-sm hover:scale-105 transition-transform flex items-center gap-1 px-1.5 sm:px-2"
                   title="كيتا"
                 >
-                  <div className="relative w-6 h-6 rounded-lg overflow-hidden">
+                  <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-md overflow-hidden">
                     <Image src="/delivery-apps/keeta.jpg" alt="Keeta" fill className="object-cover" />
                   </div>
-                  <span className="text-xs font-black text-black">كيتا</span>
+                  <span className="text-[10px] sm:text-xs font-black text-black">كيتا</span>
                 </a>
 
                 <a
                   href="#delivery-apps"
-                  className="bg-white p-1 rounded-xl neo-border-sm hover:scale-105 transition-transform flex items-center gap-1.5 px-2"
+                  className="bg-white p-1 rounded-lg neo-border-sm hover:scale-105 transition-transform flex items-center gap-1 px-1.5 sm:px-2"
                   title="نينجا"
                 >
-                  <div className="relative w-6 h-6 rounded-lg overflow-hidden">
+                  <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-md overflow-hidden">
                     <Image src="/delivery-apps/ninja.jpg" alt="Ninja" fill className="object-cover" />
                   </div>
-                  <span className="text-xs font-black text-black">نينجا</span>
+                  <span className="text-[10px] sm:text-xs font-black text-black">نينجا</span>
                 </a>
               </div>
             </div>

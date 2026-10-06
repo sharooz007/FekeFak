@@ -41,16 +41,16 @@ export default function MenuPreview() {
           </p>
         </div>
 
-        {/* Grid of Best Selling Items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {/* Grid of Best Selling Items: 2 cards per row on mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-8">
           {displayedItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl neo-border neo-shadow flex flex-col justify-between overflow-hidden group hover:-translate-y-1 transition-all duration-200"
+              className="bg-white rounded-xl sm:rounded-2xl neo-border-sm sm:neo-border neo-shadow flex flex-col justify-between overflow-hidden group hover:-translate-y-1 transition-all duration-200"
             >
               <div>
                 {/* Item Image & Badges */}
-                <div className="relative h-48 w-full bg-neutral-100 overflow-hidden border-b-2 border-black">
+                <div className="relative h-28 sm:h-48 w-full bg-neutral-100 overflow-hidden border-b-2 border-black">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -59,48 +59,48 @@ export default function MenuPreview() {
                   />
 
                   {/* Most Popular Badge */}
-                  <div className="absolute top-2.5 right-2.5 bg-[#ffc700] text-black text-xs font-black px-2.5 py-1 rounded-lg neo-border-sm shadow-sm flex items-center gap-1">
-                    <Sparkle size={12} weight="fill" className="text-[#e11d2a]" />
+                  <div className="absolute top-1.5 right-1.5 sm:top-2.5 sm:right-2.5 bg-[#ffc700] text-black text-[9px] sm:text-xs font-black px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg neo-border-sm shadow-sm flex items-center gap-1">
+                    <Sparkle size={10} weight="fill" className="text-[#e11d2a] sm:w-3 sm:h-3" />
                     <span>الأكثر طلباً</span>
                   </div>
 
                   {/* Price Sticker */}
-                  <div className="absolute bottom-2.5 left-2.5 bg-[#e11d2a] text-white font-black text-lg px-3 py-1 rounded-xl neo-border-sm neo-shadow-sm flex items-center gap-1">
+                  <div className="absolute bottom-1.5 left-1.5 sm:bottom-2.5 sm:left-2.5 bg-[#e11d2a] text-white font-black text-xs sm:text-lg px-2 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-xl neo-border-sm neo-shadow-sm flex items-center gap-0.5 sm:gap-1">
                     <span>{item.price}</span>
-                    <span className="text-xs font-bold">ريال</span>
+                    <span className="text-[10px] sm:text-xs font-bold">ريال</span>
                   </div>
 
                   {/* Calories Pill */}
-                  <div className="absolute bottom-2.5 right-2.5 bg-black/80 backdrop-blur-sm text-[#ffc700] text-xs font-bold px-2.5 py-1 rounded-lg border border-white/20 flex items-center gap-1">
-                    <Fire size={14} weight="fill" className="text-[#e11d2a]" />
-                    <span>{item.calories} سعرة</span>
+                  <div className="absolute bottom-1.5 right-1.5 sm:bottom-2.5 sm:right-2.5 bg-black/80 backdrop-blur-sm text-[#ffc700] text-[9px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg border border-white/20 flex items-center gap-0.5 sm:gap-1">
+                    <Fire size={11} weight="fill" className="text-[#e11d2a] sm:w-3.5 sm:h-3.5" />
+                    <span>{item.calories} س</span>
                   </div>
                 </div>
 
                 {/* Item Details */}
-                <div className="p-4 space-y-2 text-right">
-                  <h3 className="text-xl font-black text-black group-hover:text-[#e11d2a] transition-colors">
+                <div className="p-2.5 sm:p-4 space-y-1 sm:space-y-2 text-right">
+                  <h3 className="text-sm sm:text-xl font-black text-black group-hover:text-[#e11d2a] transition-colors leading-tight">
                     {item.name}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-gray-700 font-bold leading-relaxed line-clamp-2">
+                  <p className="text-[11px] sm:text-sm text-gray-700 font-bold leading-relaxed line-clamp-2">
                     {item.description}
                   </p>
 
                   {/* Add-ons Notice */}
                   {item.addOn && (
-                    <div className="pt-1">
-                      <span className="inline-block bg-[#fffae6] border border-[#ffc700] text-black text-xs font-black px-2 py-0.5 rounded-md">
-                        + {item.addOn.name} ({item.addOn.price} ريال)
+                    <div className="pt-0.5">
+                      <span className="inline-block bg-[#fffae6] border border-[#ffc700] text-black text-[9px] sm:text-xs font-black px-1.5 py-0.5 rounded">
+                        + {item.addOn.name} ({item.addOn.price} ر)
                       </span>
                     </div>
                   )}
 
                   {/* Combo Option Notice */}
                   {item.comboOption && (
-                    <div className="pt-1">
-                      <span className="inline-block bg-red-50 border border-red-300 text-[#e11d2a] text-xs font-black px-2 py-0.5 rounded-md">
-                        🍟 {item.comboOption.name} (+{item.comboOption.price} ريال)
+                    <div className="pt-0.5">
+                      <span className="inline-block bg-red-50 border border-red-300 text-[#e11d2a] text-[9px] sm:text-xs font-black px-1.5 py-0.5 rounded">
+                        🍟 كومبو (+{item.comboOption.price} ر)
                       </span>
                     </div>
                   )}
@@ -108,12 +108,12 @@ export default function MenuPreview() {
               </div>
 
               {/* Card Action Footer */}
-              <div className="p-4 pt-0">
+              <div className="p-2 sm:p-4 pt-0">
                 <a
                   href="#branches"
-                  className="w-full neo-btn bg-[#ffc700] text-black font-black text-sm py-2.5 rounded-xl neo-border-sm flex items-center justify-center gap-2 group-hover:bg-[#e11d2a] group-hover:text-white transition-colors"
+                  className="w-full neo-btn bg-[#ffc700] text-black font-black text-xs sm:text-sm py-2 sm:py-2.5 rounded-lg sm:rounded-xl neo-border-sm flex items-center justify-center gap-1.5 group-hover:bg-[#e11d2a] group-hover:text-white transition-colors"
                 >
-                  <PhoneCall size={18} weight="bold" />
+                  <PhoneCall size={14} weight="bold" className="sm:w-4 sm:h-4" />
                   <span>اطلب من فرعك</span>
                 </a>
               </div>
