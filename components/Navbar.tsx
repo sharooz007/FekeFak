@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { PhoneCall, List, X, MapPin, InstagramLogo, TiktokLogo, Sparkle, Fire } from '@phosphor-icons/react';
+import { PhoneCall, MapPin, InstagramLogo, TiktokLogo, Sparkle, Fire } from '@phosphor-icons/react';
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -83,46 +82,14 @@ export default function Navbar() {
               </div>
             </a>
 
-            {/* Clean Desktop Navigation: Only Locations & Order Button */}
-            <div className="hidden sm:flex items-center gap-3 lg:gap-4">
-              {/* Location Link Button */}
+            {/* Single Focused CTA: Order Now */}
+            <div className="flex items-center">
               <a
                 href="#branches"
-                className="neo-btn bg-white text-black font-black text-sm sm:text-base px-5 py-2.5 rounded-xl neo-border neo-shadow flex items-center gap-2 hover:bg-neutral-100 transition-colors"
+                className="neo-btn bg-[#ffc700] text-black font-black text-xs sm:text-base px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-xl neo-border-sm sm:neo-border neo-shadow flex items-center gap-1.5 sm:gap-2 group hover:bg-white transition-colors"
               >
-                <MapPin size={22} weight="fill" className="text-[#e11d2a]" />
-                <span>المواقع والفروع</span>
-                <span className="bg-[#ffc700] text-black text-xs font-black px-1.5 py-0.5 rounded-md neo-border-sm">
-                  ١٠
-                </span>
-              </a>
-
-              {/* Demand / Order Button */}
-              <a
-                href="#branches"
-                className="neo-btn bg-[#ffc700] text-black font-black text-sm sm:text-base px-6 py-2.5 rounded-xl neo-border neo-shadow flex items-center gap-2 group"
-              >
-                <PhoneCall size={22} weight="bold" className="group-hover:animate-bounce" />
-                <span>الطلب المباشر</span>
-              </a>
-            </div>
-
-            {/* Mobile Actions */}
-            <div className="sm:hidden flex items-center gap-2">
-              <a
-                href="#branches"
-                className="bg-[#ffc700] text-black font-black text-xs px-3 py-2 rounded-xl neo-border-sm flex items-center gap-1"
-              >
-                <PhoneCall size={16} weight="bold" />
-                <span>الطلب</span>
-              </a>
-
-              <a
-                href="#branches"
-                className="bg-white text-black font-black text-xs px-3 py-2 rounded-xl neo-border-sm flex items-center gap-1"
-              >
-                <MapPin size={16} weight="fill" className="text-[#e11d2a]" />
-                <span>المواقع</span>
+                <PhoneCall size={16} weight="bold" className="sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
+                <span>اطلب الآن</span>
               </a>
             </div>
 

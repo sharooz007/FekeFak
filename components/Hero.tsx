@@ -66,18 +66,15 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Quality Pillars Strip: Proper 3-Column Clean Grid on Mobile */}
+            {/* Quality Pillars Strip: Clean Text without Ticks */}
             <div className="pt-2 grid grid-cols-3 gap-1.5 sm:gap-3 text-center">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
-                <span className="text-[#ffc700] text-xs sm:text-sm font-black">✓</span>
+              <div className="flex items-center justify-center bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
                 <span className="text-[10px] sm:text-xs font-black text-white/95 leading-tight">فلافل طازجة تقلى فوراً</span>
               </div>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
-                <span className="text-[#ffc700] text-xs sm:text-sm font-black">✓</span>
+              <div className="flex items-center justify-center bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
                 <span className="text-[10px] sm:text-xs font-black text-white/95 leading-tight">شاورما بتتبيلة السيخ</span>
               </div>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
-                <span className="text-[#ffc700] text-xs sm:text-sm font-black">✓</span>
+              <div className="flex items-center justify-center bg-black/25 px-2 py-1.5 sm:py-2 rounded-xl border border-white/20">
                 <span className="text-[10px] sm:text-xs font-black text-white/95 leading-tight">١٠ فروع بالشرقية</span>
               </div>
             </div>

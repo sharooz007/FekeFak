@@ -12,10 +12,10 @@ export default function Footer() {
       <div className="sadu-border-top" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start">
           
-          {/* Brand Info (5 Cols) */}
-          <div className="lg:col-span-5 space-y-4 text-right">
+          {/* Brand Info */}
+          <div className="space-y-4 text-right">
             <div className="flex items-center gap-3">
               <div className="relative w-14 h-16 bg-white p-1 rounded-xl neo-border-sm neo-shadow-sm transform -rotate-2">
                 <Image
@@ -35,8 +35,8 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-sm text-gray-300 font-bold leading-relaxed max-w-sm">
-              أفضل مذاق للفلافل المقرمشة والشاورما الأصلية وبرجر كرسبي بالخلطة الخاصة. خدمة التوصيل المباشر والتوصيل السريع عبر التطبيقات المعتمدة.
+            <p className="text-sm text-gray-300 font-bold leading-relaxed max-w-md">
+              أفضل مذاق للفلافل المقرمشة والشاورما الأصلية وبرجر كرسبي بالخلطة الخاصة. متوفرون للاستلام والتوصيل عبر التطبيقات المعتمدة في الأحساء والخبر.
             </p>
 
             {/* Social Follow Box */}
@@ -63,42 +63,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links (3 Cols) */}
-          <div className="lg:col-span-3 space-y-3 text-right">
-            <h4 className="text-lg font-black text-[#ffc700] border-b-2 border-white/20 pb-2">
-              أقسام الموقع
-            </h4>
-            <ul className="space-y-2 text-sm font-bold text-gray-300">
-              <li>
-                <a href="#hero" className="hover:text-white hover:underline">
-                  الرئيسية
-                </a>
-              </li>
-              <li>
-                <a href="#spotlight" className="hover:text-white hover:underline">
-                  أبطال الطاولة (المرجوجة وصحن المزاج)
-                </a>
-              </li>
-              <li>
-                <a href="#menu" className="hover:text-white hover:underline">
-                  المنيو الكامل والأسعار
-                </a>
-              </li>
-              <li>
-                <a href="#delivery-apps" className="hover:text-white hover:underline">
-                  تطبيقات التوصيل (هنقرستيشن، جاهز، كيتا، نينجا)
-                </a>
-              </li>
-              <li>
-                <a href="#branches" className="hover:text-white hover:underline">
-                  فروعنا ومواقع خرائط Google
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Branches Summary (4 Cols) */}
-          <div className="lg:col-span-4 space-y-3 text-right">
+          {/* Branches Summary */}
+          <div className="space-y-3 text-right">
             <h4 className="text-lg font-black text-[#ffc700] border-b-2 border-white/20 pb-2">
               مدن الفروع (١٠ فروع)
             </h4>
