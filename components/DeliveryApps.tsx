@@ -115,13 +115,9 @@ export default function DeliveryApps() {
                 <h3 className="text-base sm:text-2xl font-black text-black group-hover:text-[#e11d2a] transition-colors">
                   {isEn ? app.nameEn : app.name}
                 </h3>
-                <span className="text-[10px] sm:text-xs text-gray-500 font-bold tracking-wider block mb-1 sm:mb-2">
+                <span className="text-[10px] sm:text-xs text-gray-500 font-bold tracking-wider block mb-3 sm:mb-5">
                   {isEn ? app.name : app.nameEn}
                 </span>
-
-                <p className="text-[11px] sm:text-sm text-gray-700 font-bold leading-relaxed mb-3 sm:mb-6 line-clamp-2">
-                  {isEn ? app.descriptionEn : app.description}
-                </p>
               </div>
 
               {/* Action Button */}
