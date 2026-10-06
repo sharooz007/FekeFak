@@ -85,8 +85,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#delivery" className="hover:text-white hover:underline">
-                  خدمة التوصيل المباشر
+                <a href="#delivery-apps" className="hover:text-white hover:underline">
+                  تطبيقات التوصيل (هنقرستيشن، جاهز، كيتا، نينجا)
                 </a>
               </li>
               <li>

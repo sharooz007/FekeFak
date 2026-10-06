@@ -3,7 +3,6 @@ import Hero from '../components/Hero';
 import SignatureSpotlight from '../components/SignatureSpotlight';
 import MenuPreview from '../components/MenuPreview';
 import DeliveryApps from '../components/DeliveryApps';
-import DeliverySection from '../components/DeliverySection';
 import BranchLocator from '../components/BranchLocator';
 import HealthAndVATBanner from '../components/HealthAndVATBanner';
 import Footer from '../components/Footer';
@@ -17,7 +16,6 @@ export default function Home() {
       <SignatureSpotlight />
       <MenuPreview />
       <DeliveryApps />
-      <DeliverySection />
       <BranchLocator />
       <HealthAndVATBanner />
       <Footer />
