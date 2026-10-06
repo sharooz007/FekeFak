@@ -108,6 +108,25 @@
   animation-play-state: paused;
 }
 
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 25s linear infinite;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
 /* Halftone / Dot pattern background */
 .bg-dots-red {
   background-image: radial-gradient(#e11d2a 1.5px, transparent 1.5px);

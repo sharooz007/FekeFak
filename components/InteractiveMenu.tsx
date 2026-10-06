@@ -2,19 +2,22 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
-import { MENU_CATEGORIES, MENU_ITEMS, MenuItem } from '../data/menu';
+import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menu';
+import { useLanguage } from '../context/LanguageContext';
+import { DICTIONARY } from '../data/translations';
 import {
   MagnifyingGlass,
   Fire,
   Sparkle,
-  Plus,
   PhoneCall,
   Check,
-  Funnel,
   Tag,
 } from '@phosphor-icons/react';
 
 export default function InteractiveMenu() {
+  const { language, isEn } = useLanguage();
+  const t = DICTIONARY[language];
+
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [filterUnder10, setFilterUnder10] = useState<boolean>(false);
@@ -26,7 +29,7 @@ export default function InteractiveMenu() {
       if (activeCategory !== 'all' && item.category !== activeCategory) {
         return false;
       }
-      // Search filter
+      // Search filter (searches Arabic name, English name, and description)
       if (searchQuery.trim() !== '') {
         const query = searchQuery.toLowerCase().trim();
         const matchesName = item.name.toLowerCase().includes(query);
@@ -56,16 +59,16 @@ export default function InteractiveMenu() {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 bg-[#e11d2a] text-white font-black px-4 py-1.5 rounded-full neo-border-sm neo-shadow-sm text-sm mb-3">
             <Fire size={18} weight="fill" className="text-[#ffc700]" />
-            <span>المنيو الأصلي والأسعار الرسمية</span>
+            <span>{t.menuOfficialBadge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
-            منيو فلافل وشاورما{' '}
+            {t.menuOfficialTitle}{' '}
             <span className="text-[#e11d2a] underline decoration-black decoration-wavy">
-              على كيفك
+              {t.brandName}
             </span>
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-700 font-bold max-w-xl mx-auto">
-            جميع الأسعار موضحة بالريال السعودي وشاملة لضريبة القيمة المضافة ١٥٪ مع السعرات الحرارية لكل صنف.
+            {t.menuOfficialSubtitle}
           </p>
         </div>
 
@@ -78,23 +81,29 @@ export default function InteractiveMenu() {
             <div className="relative w-full md:flex-1">
               <input
                 type="text"
-                placeholder="ابحث عن وجبتك المفضلة (فلافل، شاورما، برجر، حمص...)"
+                placeholder={t.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#f4f4f5] border-2 border-black rounded-xl py-3 pr-11 pl-4 text-black font-bold text-base focus:outline-none focus:ring-2 focus:ring-[#e11d2a]"
+                className={`w-full bg-[#f4f4f5] border-2 border-black rounded-xl py-3 text-black font-bold text-base focus:outline-none focus:ring-2 focus:ring-[#e11d2a] ${
+                  isEn ? 'pl-11 pr-4' : 'pr-11 pl-4'
+                }`}
               />
               <MagnifyingGlass
                 size={22}
                 weight="bold"
-                className="absolute top-1/2 -translate-y-1/2 right-3.5 text-gray-500 pointer-events-none"
+                className={`absolute top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none ${
+                  isEn ? 'left-3.5' : 'right-3.5'
+                }`}
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute top-1/2 -translate-y-1/2 left-3 text-xs bg-black text-white px-2 py-1 rounded-md"
+                  className={`absolute top-1/2 -translate-y-1/2 text-xs bg-black text-white px-2 py-1 rounded-md ${
+                    isEn ? 'right-3' : 'left-3'
+                  }`}
                 >
-                  مسح
+                  {t.clearSearch}
                 </button>
               )}
             </div>
@@ -111,7 +120,7 @@ export default function InteractiveMenu() {
                 }`}
               >
                 <Tag size={18} weight="bold" />
-                <span>أقل من ١٠ ريال</span>
+                <span>{t.under10Sar}</span>
                 {filterUnder10 && <Check size={16} weight="bold" />}
               </button>
 
@@ -125,7 +134,7 @@ export default function InteractiveMenu() {
                 }`}
               >
                 <Sparkle size={18} weight="fill" />
-                <span>الأكثر طلباً فقط</span>
+                <span>{t.popularOnly}</span>
                 {filterPopular && <Check size={16} weight="bold" />}
               </button>
             </div>
@@ -136,6 +145,7 @@ export default function InteractiveMenu() {
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none pt-2">
             {MENU_CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.id;
+              const catName = isEn ? cat.nameEn : cat.name;
               return (
                 <button
                   key={cat.id}
@@ -147,7 +157,7 @@ export default function InteractiveMenu() {
                       : 'bg-white text-black hover:bg-[#ffe600]'
                   }`}
                 >
-                  {cat.name}
+                  {catName}
                 </button>
               );
             })}
@@ -158,11 +168,11 @@ export default function InteractiveMenu() {
         {/* Results Counter */}
         <div className="flex items-center justify-between mb-6 px-1">
           <span className="text-sm font-black text-gray-700">
-            تم العثور على{' '}
+            {t.foundItems}{' '}
             <span className="text-[#e11d2a] font-extrabold text-base">
               {filteredItems.length}
             </span>{' '}
-            صنف
+            {t.itemsUnit}
           </span>
 
           {(searchQuery || filterUnder10 || filterPopular || activeCategory !== 'all') && (
@@ -176,7 +186,7 @@ export default function InteractiveMenu() {
               }}
               className="text-xs font-black text-[#e11d2a] underline hover:text-black"
             >
-              إعادة تعيين الفلاتر
+              {t.resetFilters}
             </button>
           )}
         </div>
@@ -184,8 +194,8 @@ export default function InteractiveMenu() {
         {/* Grid of Menu Items: 2 cards per row on mobile */}
         {filteredItems.length === 0 ? (
           <div className="text-center py-16 bg-white rounded-3xl neo-border p-8">
-            <p className="text-2xl font-black text-black">لم يتم العثور على أطباق مطابقة!</p>
-            <p className="text-gray-600 font-bold mt-2">جرّب البحث باسم آخر أو إزالة الفلاتر.</p>
+            <p className="text-2xl font-black text-black">{t.noItemsFound}</p>
+            <p className="text-gray-600 font-bold mt-2">{t.noItemsHint}</p>
             <button
               type="button"
               onClick={() => {
@@ -196,7 +206,7 @@ export default function InteractiveMenu() {
               }}
               className="mt-4 neo-btn bg-[#ffc700] text-black font-black px-6 py-2.5 rounded-xl neo-border text-sm"
             >
-              عرض جميع الأصناف
+              {t.showAllItems}
             </button>
           </div>
         ) : (
@@ -211,7 +221,7 @@ export default function InteractiveMenu() {
                   <div className="relative h-28 sm:h-48 w-full bg-neutral-100 overflow-hidden border-b-2 border-black">
                     <Image
                       src={item.image}
-                      alt={item.name}
+                      alt={isEn ? (item.nameEn || item.name) : item.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -233,20 +243,20 @@ export default function InteractiveMenu() {
                     {/* Price Sticker (Bottom left) */}
                     <div className="absolute bottom-1.5 left-1.5 sm:bottom-2.5 sm:left-2.5 bg-[#e11d2a] text-white font-black text-xs sm:text-lg px-2 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-xl neo-border-sm neo-shadow-sm flex items-center gap-0.5 sm:gap-1">
                       <span>{item.price}</span>
-                      <span className="text-[10px] sm:text-xs font-bold">ريال</span>
+                      <span className="text-[10px] sm:text-xs font-bold">{t.sar}</span>
                     </div>
 
                     {/* Calories Pill (Bottom right) */}
                     <div className="absolute bottom-1.5 right-1.5 sm:bottom-2.5 sm:right-2.5 bg-black/80 backdrop-blur-sm text-[#ffc700] text-[9px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg border border-white/20 flex items-center gap-0.5 sm:gap-1">
                       <Fire size={11} weight="fill" className="text-[#e11d2a] sm:w-3.5 sm:h-3.5" />
-                      <span>{item.calories} س</span>
+                      <span>{item.calories} {t.kcalShort}</span>
                     </div>
                   </div>
 
                   {/* Item Details */}
-                  <div className="p-2.5 sm:p-4 space-y-1 sm:space-y-2 text-right">
+                  <div className={`p-2.5 sm:p-4 space-y-1 sm:space-y-2 ${isEn ? 'text-left' : 'text-right'}`}>
                     <h3 className="text-sm sm:text-xl font-black text-black group-hover:text-[#e11d2a] transition-colors leading-tight">
-                      {item.name}
+                      {isEn ? (item.nameEn || item.name) : item.name}
                     </h3>
 
                     <p className="text-[11px] sm:text-sm text-gray-700 font-bold leading-relaxed line-clamp-2">
@@ -257,7 +267,7 @@ export default function InteractiveMenu() {
                     {item.addOn && (
                       <div className="pt-0.5">
                         <span className="inline-block bg-[#fffae6] border border-[#ffc700] text-black text-[9px] sm:text-xs font-black px-1.5 py-0.5 rounded">
-                          + {item.addOn.name} ({item.addOn.price} ر)
+                          + {item.addOn.name} ({item.addOn.price} {t.sarShort})
                         </span>
                       </div>
                     )}
@@ -266,7 +276,7 @@ export default function InteractiveMenu() {
                     {item.comboOption && (
                       <div className="pt-0.5">
                         <span className="inline-block bg-red-50 border border-red-300 text-[#e11d2a] text-[9px] sm:text-xs font-black px-1.5 py-0.5 rounded">
-                          🍟 كومبو (+{item.comboOption.price} ر)
+                          {t.comboMeal} (+{item.comboOption.price} {t.sarShort})
                         </span>
                       </div>
                     )}
@@ -280,7 +290,7 @@ export default function InteractiveMenu() {
                     className="w-full neo-btn bg-[#ffc700] text-black font-black text-xs sm:text-sm py-2 sm:py-2.5 rounded-lg sm:rounded-xl neo-border-sm flex items-center justify-center gap-1.5 group-hover:bg-[#e11d2a] group-hover:text-white transition-colors"
                   >
                     <PhoneCall size={14} weight="bold" className="sm:w-4 sm:h-4" />
-                    <span>اطلب من فرعك</span>
+                    <span>{t.orderFromBranch}</span>
                   </a>
                 </div>
 

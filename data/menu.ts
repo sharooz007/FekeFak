@@ -25,12 +25,12 @@ export interface MenuItem {
 }
 
 export const MENU_CATEGORIES = [
-  { id: 'all', name: 'الكل', icon: 'Sparkle' },
-  { id: 'sandwiches', name: 'الساندويتشات', icon: 'Sandwich' },
-  { id: 'crispy', name: 'كرسبي وقرمشة', icon: 'Flame' },
-  { id: 'platters', name: 'الصحون والمشكل', icon: 'CookingPot' },
-  { id: 'sides', name: 'خفايف وتغميسات', icon: 'BowlFood' },
-  { id: 'drinks', name: 'المشروبات', icon: 'Coffee' },
+  { id: 'all', name: 'الكل', nameEn: 'All', icon: 'Sparkle' },
+  { id: 'sandwiches', name: 'الساندويتشات', nameEn: 'Sandwiches', icon: 'Sandwich' },
+  { id: 'crispy', name: 'كرسبي وقرمشة', nameEn: 'Crispy & Crunchy', icon: 'Flame' },
+  { id: 'platters', name: 'الصحون والمشكل', nameEn: 'Platters & Combos', icon: 'CookingPot' },
+  { id: 'sides', name: 'خفايف وتغميسات', nameEn: 'Sides & Dips', icon: 'BowlFood' },
+  { id: 'drinks', name: 'المشروبات', nameEn: 'Beverages', icon: 'Coffee' },
 ] as const;
 
 export const MENU_ITEMS: MenuItem[] = [

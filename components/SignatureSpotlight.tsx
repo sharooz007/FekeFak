@@ -2,9 +2,14 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Fire, Sparkle, PhoneCall, ShoppingBag } from '@phosphor-icons/react';
+import { useLanguage } from '../context/LanguageContext';
+import { DICTIONARY } from '../data/translations';
+import { Fire, Sparkle, ShoppingBag } from '@phosphor-icons/react';
 
 export default function SignatureSpotlight() {
+  const { language, isEn } = useLanguage();
+  const t = DICTIONARY[language];
+
   return (
     <section id="spotlight" className="py-16 sm:py-24 bg-[#fffdf5] border-b-4 border-black relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,16 +18,16 @@ export default function SignatureSpotlight() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 bg-[#ffc700] text-black font-black px-4 py-1.5 rounded-full neo-border-sm neo-shadow-sm text-sm transform -rotate-2 mb-4">
             <Sparkle size={18} weight="fill" className="text-[#e11d2a]" />
-            <span>نجوم الطاولة والأكثر شهرة</span>
+            <span>{t.spotlightBadge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight drop-shadow-sm">
-            أصناف صنعت خصيصاً{' '}
+            {t.spotlightTitle}{' '}
             <span className="bg-[#e11d2a] text-white px-3 py-1 rounded-xl neo-border-sm inline-block transform rotate-1">
-              على كيفك!
+              {t.spotlightTitleHighlight}
             </span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-700 font-bold max-w-xl mx-auto">
-            اختراعات فريدة تميزنا، من كوب المرجوجة الغني بالنكهات إلى صحن المزاج المشكل المتكامل.
+            {t.spotlightSubtitle}
           </p>
         </div>
 
@@ -38,10 +43,10 @@ export default function SignatureSpotlight() {
             {/* Top Badge */}
             <div className="relative z-10 flex items-center justify-between gap-4">
               <span className="bg-[#ffc700] text-black font-black px-4 py-1.5 rounded-xl neo-border-sm text-sm uppercase">
-                اختراع فريد • الأكثر طلباً
+                {t.marjoojahBadge}
               </span>
               <span className="bg-black/60 text-[#ffc700] font-black px-3.5 py-1 rounded-full text-xs sm:text-sm border border-white/20">
-                🔥 ٦٨٨ سعرة حرارية
+                {t.marjoojahCalories}
               </span>
             </div>
 
@@ -53,44 +58,44 @@ export default function SignatureSpotlight() {
                 <div className="relative w-52 h-60 sm:w-60 sm:h-68 rounded-2xl overflow-hidden neo-border bg-white shadow-md">
                   <Image
                     src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80"
-                    alt="كوب المرجوجة"
+                    alt={t.marjoojahTitle}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-2.5 right-2.5 bg-[#ffc700] text-black text-xs font-black px-2.5 py-1 rounded-lg neo-border-sm">
-                    🥤 كوب المرجوجة
+                    {t.marjoojahCupLabel}
                   </div>
                   <div className="absolute bottom-2.5 left-2.5 bg-[#e11d2a] text-white text-sm font-black px-3 py-1 rounded-lg neo-border-sm">
-                    ٩ ريال
+                    {t.marjoojahPrice}
                   </div>
                 </div>
               </div>
 
               {/* Text Description & Ingredients */}
-              <div className="space-y-4 text-right">
+              <div className={`space-y-4 ${isEn ? 'text-left' : 'text-right'}`}>
                 <h3 className="text-3xl sm:text-4xl font-black text-white">
-                  المرجوجة{' '}
+                  {t.marjoojahTitle}{' '}
                   <span className="text-[#ffc700] text-2xl font-bold block sm:inline">
-                    (كوب السعادة)
+                    {t.marjoojahSubtitle}
                   </span>
                 </h3>
                 <p className="text-white/95 font-bold text-sm sm:text-base leading-relaxed">
-                  كوب مليء بشرائح شاورما الدجاج الطازجة، مغطى بعيدان البطاطس المقرمشة، سلطة الملفوف، مع خلطة الكاتشب والطحينية الساحرة.
+                  {t.marjoojahDesc}
                 </p>
 
                 {/* Ingredients Pills */}
                 <div className="flex flex-wrap gap-2 pt-2">
                   <span className="bg-black/30 border border-white/30 text-white text-xs font-black px-2.5 py-1 rounded-lg">
-                    🍗 شاورما دجاج
+                    {t.ingShawarma}
                   </span>
                   <span className="bg-black/30 border border-white/30 text-white text-xs font-black px-2.5 py-1 rounded-lg">
-                    🍟 عيدان بطاطس
+                    {t.ingFries}
                   </span>
                   <span className="bg-black/30 border border-white/30 text-white text-xs font-black px-2.5 py-1 rounded-lg">
-                    🥗 سلطة ملفوف
+                    {t.ingColeslaw}
                   </span>
                   <span className="bg-black/30 border border-white/30 text-white text-xs font-black px-2.5 py-1 rounded-lg">
-                    🥣 كاتشب وطحينية
+                    {t.ingSauces}
                   </span>
                 </div>
 
@@ -100,7 +105,7 @@ export default function SignatureSpotlight() {
                     className="inline-flex items-center gap-2 bg-[#ffc700] text-black font-black text-sm px-6 py-3 rounded-xl neo-border neo-shadow-sm hover:bg-white transition-colors"
                   >
                     <ShoppingBag size={18} weight="bold" />
-                    <span>اطلب المرجوجة الآن</span>
+                    <span>{t.marjoojahOrder}</span>
                   </a>
                 </div>
               </div>
@@ -109,7 +114,7 @@ export default function SignatureSpotlight() {
 
             {/* Bottom Slogan */}
             <div className="relative z-10 bg-black/40 border border-white/20 rounded-xl p-3 text-center text-xs font-black text-[#ffc700]">
-              ✨ ميكس متكامل يجمع لذة الشاورما مع قرمشة البطاطس وطراوة الصوصات الخاصة!
+              {t.marjoojahSlogan}
             </div>
           </div>
 
@@ -119,10 +124,10 @@ export default function SignatureSpotlight() {
             {/* Top Badge */}
             <div className="flex items-center justify-between gap-4">
               <span className="bg-[#e11d2a] text-white font-black px-4 py-1.5 rounded-xl neo-border-sm text-sm">
-                الميكس الأسطوري
+                {t.mazajBadge}
               </span>
               <span className="bg-black text-[#ffc700] font-black px-3.5 py-1 rounded-full text-xs sm:text-sm">
-                ٢٧ ريال فقط
+                {t.mazajPriceBadge}
               </span>
             </div>
 
@@ -130,22 +135,22 @@ export default function SignatureSpotlight() {
             <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden neo-border bg-white my-4">
               <Image
                 src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=700&q=80"
-                alt="صحن المزاج وعلى كيفك"
+                alt={t.mazajTitle}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute bottom-2 left-2 bg-black/80 text-white text-xs font-black px-3 py-1 rounded-lg">
-                🔥 ٢٥١٨ سعرة (مشبع للمشاركة)
+                {t.mazajCalories}
               </div>
             </div>
 
             {/* Details */}
-            <div className="space-y-3">
+            <div className={`space-y-3 ${isEn ? 'text-left' : 'text-right'}`}>
               <h3 className="text-2xl sm:text-3xl font-black text-black">
-                صحن المزاج وعلى كيفك (كبير)
+                {t.mazajTitle}
               </h3>
               <p className="text-black/80 font-bold text-sm leading-relaxed">
-                محتار بين الفلافل والشاورما؟ جمعناهم لك في صحن واحد فخم: ٦ قطع شاورما دجاج + ٦ قطع فلافل + بطاطس + ثومية + حمص + مخلل!
+                {t.mazajDesc}
               </p>
 
               <div className="pt-2">
@@ -154,7 +159,7 @@ export default function SignatureSpotlight() {
                   className="w-full neo-btn bg-[#e11d2a] text-white font-black text-sm sm:text-base py-3 px-4 rounded-xl neo-border neo-shadow-sm flex items-center justify-center gap-2"
                 >
                   <Fire size={20} weight="fill" />
-                  <span>اطلب صحن المزاج الآن</span>
+                  <span>{t.mazajOrder}</span>
                 </a>
               </div>
             </div>

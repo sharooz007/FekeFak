@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cairo } from 'next/font/google';
 import './globals.css';
+import { LanguageProvider } from '../context/LanguageContext';
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -10,6 +11,7 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fekefak.vercel.app'),
   title: 'فلافل وشاورما على كيفك | Fkefaak - القرمشة اللي تدور عليها',
   description: 'فلافل وشاورما على كيفك، برجر كرسبي، وصحون مشكلة في الأحساء والخبر. طعم أصيل وقرمشة أسطورية منذ 2013م.',
   keywords: ['فلافل', 'شاورما', 'على كيفك', 'الأحساء', 'الخبر', 'مطعم شاورما', 'المرجوجة', 'كرسبي', 'fkefaak'],
@@ -26,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
+    <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
       <body className="antialiased selection:bg-[#ffc700] selection:text-black">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
