@@ -1,12 +1,11 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { BRANCHES, Branch } from '../data/branches';
+import React from 'react';
+import { BRANCHES } from '../data/branches';
 import {
   MapPin,
   PhoneCall,
   WhatsappLogo,
-  MagnifyingGlass,
   ArrowSquareOut,
   Building,
   NavigationArrow,
@@ -15,32 +14,6 @@ import {
 } from '@phosphor-icons/react';
 
 export default function BranchLocator() {
-  const [activeCity, setActiveCity] = useState<'all' | 'direct' | 'ahsa' | 'khobar'>('all');
-  const [searchBranch, setSearchBranch] = useState<string>('');
-
-  const filteredBranches = useMemo(() => {
-    return BRANCHES.filter((branch) => {
-      if (activeCity === 'direct' && !branch.hasDirectDelivery) {
-        return false;
-      }
-      if (activeCity === 'ahsa' && branch.cityKey !== 'ahsa') {
-        return false;
-      }
-      if (activeCity === 'khobar' && branch.cityKey !== 'khobar') {
-        return false;
-      }
-      if (searchBranch.trim() !== '') {
-        const query = searchBranch.toLowerCase().trim();
-        return (
-          branch.name.toLowerCase().includes(query) ||
-          branch.city.toLowerCase().includes(query) ||
-          branch.phone.includes(query) ||
-          (branch.address && branch.address.toLowerCase().includes(query))
-        );
-      }
-      return true;
-    });
-  }, [activeCity, searchBranch]);
 
   const formatWhatsAppUrl = (phone: string, branchName: string) => {
     const cleanNumber = phone.replace(/^0/, '966').replace(/\s+/g, '');
@@ -71,84 +44,11 @@ export default function BranchLocator() {
           </p>
         </div>
 
-        {/* Filter Controls (City Tabs + Search) */}
-        <div className="bg-white p-4 sm:p-6 rounded-2xl neo-border neo-shadow-lg mb-10 space-y-4">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-            
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto">
-              <button
-                type="button"
-                onClick={() => setActiveCity('all')}
-                className={`neo-btn px-4 py-2.5 rounded-xl text-sm sm:text-base font-black border-2 border-black ${
-                  activeCity === 'all'
-                    ? 'bg-[#e11d2a] text-white neo-shadow-sm'
-                    : 'bg-white text-black hover:bg-[#ffc700]'
-                }`}
-              >
-                جميع الفروع (١٠)
-              </button>
 
-              <button
-                type="button"
-                onClick={() => setActiveCity('direct')}
-                className={`neo-btn px-4 py-2.5 rounded-xl text-sm sm:text-base font-black border-2 border-black flex items-center gap-1.5 ${
-                  activeCity === 'direct'
-                    ? 'bg-[#25D366] text-white neo-shadow-sm'
-                    : 'bg-white text-black hover:bg-[#ffc700]'
-                }`}
-              >
-                <Truck size={18} weight="fill" />
-                <span>فروع التوصيل المباشر (٤)</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveCity('ahsa')}
-                className={`neo-btn px-4 py-2.5 rounded-xl text-sm sm:text-base font-black border-2 border-black ${
-                  activeCity === 'ahsa'
-                    ? 'bg-[#e11d2a] text-white neo-shadow-sm'
-                    : 'bg-white text-black hover:bg-[#ffc700]'
-                }`}
-              >
-                الأحساء (٨)
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveCity('khobar')}
-                className={`neo-btn px-4 py-2.5 rounded-xl text-sm sm:text-base font-black border-2 border-black ${
-                  activeCity === 'khobar'
-                    ? 'bg-[#e11d2a] text-white neo-shadow-sm'
-                    : 'bg-white text-black hover:bg-[#ffc700]'
-                }`}
-              >
-                الخبر (٢)
-              </button>
-            </div>
-
-            {/* Search Input */}
-            <div className="relative w-full lg:w-72">
-              <input
-                type="text"
-                placeholder="ابحث باسم الحي أو الفرع..."
-                value={searchBranch}
-                onChange={(e) => setSearchBranch(e.target.value)}
-                className="w-full bg-[#f4f4f5] border-2 border-black rounded-xl py-2.5 pr-10 pl-3 text-black font-bold text-sm focus:outline-none focus:ring-2 focus:ring-[#e11d2a]"
-              />
-              <MagnifyingGlass
-                size={18}
-                weight="bold"
-                className="absolute top-1/2 -translate-y-1/2 right-3 text-gray-500 pointer-events-none"
-              />
-            </div>
-
-          </div>
-        </div>
 
         {/* Branches Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredBranches.map((branch) => (
+          {BRANCHES.map((branch) => (
             <div
               key={branch.id}
               className={`bg-white rounded-2xl neo-border neo-shadow p-5 flex flex-col justify-between hover:-translate-y-1 transition-all duration-200 group ${
