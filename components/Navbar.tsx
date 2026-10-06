@@ -99,10 +99,10 @@ export default function Navbar() {
                 <span>{isEn ? 'العربية' : 'English'}</span>
               </button>
 
-              {/* Order Now CTA Button */}
+              {/* Order Now CTA Button - hidden on mobile since floating dock is present */}
               <a
                 href="#branches"
-                className="neo-btn bg-[#ffc700] text-black font-black text-xs sm:text-base px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-xl neo-border-sm sm:neo-border neo-shadow flex items-center gap-1.5 sm:gap-2 group hover:bg-white transition-colors"
+                className="hidden sm:flex neo-btn bg-[#ffc700] text-black font-black text-xs sm:text-base px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-xl neo-border-sm sm:neo-border neo-shadow items-center gap-1.5 sm:gap-2 group hover:bg-white transition-colors"
               >
                 <PhoneCall size={16} weight="bold" className="sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
                 <span>{t.orderNow}</span>
