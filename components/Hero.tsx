@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-[#e11d2a] text-white overflow-hidden border-b-4 border-black pt-5 pb-8 sm:pb-20 lg:pb-24"
+      className="relative bg-[#e11d2a] text-white overflow-hidden border-b-4 border-black pt-12 sm:pt-16 pb-10 sm:pb-20 lg:pb-24"
     >
       {/* Background Texture: Halftone Dots */}
       <div className="absolute inset-0 bg-dots-white opacity-20 pointer-events-none" />
@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Content (Text & Call to Actions) */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-right">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-right pt-2 sm:pt-0">
             
             {/* Punchy Headline - Balanced on Mobile & Desktop */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-tight text-white drop-shadow-[2px_2px_0px_#000] sm:drop-shadow-[3px_3px_0px_#000]">
